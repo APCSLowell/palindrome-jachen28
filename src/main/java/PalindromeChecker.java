@@ -37,8 +37,8 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  for(int i = 0; i = word.length(); i++)
-  if(!str.substring(i, i+1).equals(" "))
+  for(int i = 0; i <= word.length(); i++)
+  if(!word.substring(i, i+1).equals(" "))
   word = word + word.substring(i, i+1);
     word.toLowerCase();
   String backwards = reverse(word);

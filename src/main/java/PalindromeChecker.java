@@ -36,11 +36,7 @@ public void tester()
   }
 }
 public boolean palindrome(String word)
-{
-  for(int i = 0; i <= word.length(); i++)
-  if(!word.substring(i, i+1).equals(" "))
-  word = word + word.substring(i, i+1);
-    word.toLowerCase();
+  {
   String backwards = reverse(word);
   if(word.equals(backwards))
     return true;
@@ -48,10 +44,15 @@ public boolean palindrome(String word)
 }
 public String reverse(String str)
 {
-    
+    str.toLowerCase();
     String sNew = new String();
   for(int i = str.length(); i > 0; i--){
   sNew = sNew + str.substring(i-1,i);
+  if(!str.substring(i, i+1).equals(" "))
+  sNew = sNew + str.substring(i, i+1);
+  for(int i = 0; i < str.length(); i++)
+  if(Character.isLetter(str.charAt(i)))
+  sNew = sNew + str.substring(i, i+1);
   }
     return sNew;
 }

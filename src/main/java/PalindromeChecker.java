@@ -48,9 +48,10 @@ public String reverse(String str)
     String sNew = new String();
   for(int i = str.length(); i > 0; i--){
   sNew = sNew + str.substring(i-1,i);
-  if(!str.substring(i, i+1).equals(" "))
-  sNew = sNew + str.substring(i, i+1);
-  for(int i = 0; i < str.length(); i++)
+  if(!str.substring(i-1, i).equals(" "))
+  sNew = sNew + str.substring(i-1, i);
+  }
+  for(int i = 0; i < str.length(); i++){
   if(Character.isLetter(str.charAt(i)))
   sNew = sNew + str.substring(i, i+1);
   }

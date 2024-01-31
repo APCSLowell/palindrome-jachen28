@@ -47,7 +47,6 @@ public String reverse(String str)
     str.toLowerCase();
     String sNew = new String();
   for(int i = str.length(); i > 0; i--){
-  sNew = sNew + str.substring(i-1,i);
   if(!str.substring(i-1, i).equals(" "))
   sNew = sNew + str.substring(i-1, i);
   }

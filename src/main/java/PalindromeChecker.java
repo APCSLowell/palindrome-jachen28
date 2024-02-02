@@ -61,7 +61,7 @@ public String noSpaces (String str){
 
 public String noPunctuation(String a){
   String s = new String();
-  for(int i = 0; i < a.length; i++)
+  for(int i = 0; i < a.length(); i++)
     if(a.substring(i, i+1).equals(".") == false && a.substring(i, i+1).equals(",") == false)
       s = a.substring(i, i+1);
   return s;

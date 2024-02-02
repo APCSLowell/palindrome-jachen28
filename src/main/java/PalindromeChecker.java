@@ -37,8 +37,7 @@ public void tester()
 }
 public boolean palindrome(String word)
   {
-  String backwards = reverse(word);
-  if(word.equals(backwards))
+ if(noPunctuation(onlyLetter(noSpaces(word.toLowerCase()))).equals(noSpaces(reverse(noPunctuation(onlyLetter(word.toLowerCase()))))) == true)
     return true;
   return false;
 }
@@ -46,17 +45,35 @@ public String reverse(String str)
 {
     
     String sNew = new String();
-    sNew = str.toLowerCase();
-  for(int i = str.length(); i > 0; i--){
-  if(!str.substring(i-1, i).equals(" "))
-  sNew = sNew + str.substring(i-1, i);
-  }
-  for(int i = 0; i < str.length(); i++){
-  if(Character.isLetter(str.charAt(i)))
+  for(int i = str.length()-1; i > -1; i--)
   sNew = sNew + str.substring(i, i+1);
-  }
+
     return sNew;
 }
+
+public String noSpaces (String str){
+ String s = "";
+  for(int i = 0; i < str.length(); i++)
+  if(str.substring(i, i+1).equals(" ") != true)
+  s = s + str.substring(i, i+1);
+  return s;
+}
+
+public String noPunctuation(String a){
+  String s = new String();
+  for(int i = 0; i < a.length; i++)
+    if(a.substring(i, i+1).equals(".") == false && a.substring(i, i+1).equals(",") == false)
+      s = a.substring(i, i+1);
+  return s;
+}
+
+  public String onlyLetter(String b){
+    String letters = ""; 
+    for(int i = 0; i < b.length(); i++)
+      if(Character.isLetter(b.charAt(i)) == true)
+       letters = letters + b.substring(i, i+1);
+    return letters;
+  }
 }
 
 

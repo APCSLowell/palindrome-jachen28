@@ -35,45 +35,30 @@ public void tester()
     }
   }
 }
+  
 public boolean palindrome(String word)
-  {
- if(noPunctuation(onlyLetter(noSpaces(word.toLowerCase()))).equals(noSpaces(reverse(noPunctuation(onlyLetter(word.toLowerCase()))))) == true)
+{
+  String bob = onlyLetters(word);
+  if((bob.toLowerCase()).equals(reverse(bob.toLowerCase()))) 
     return true;
-  return false;
+    return false;
 }
+  
 public String reverse(String str)
 {
-    
-    String sNew = new String();
-  for(int i = str.length()-1; i > -1; i--)
-  sNew = sNew + str.substring(i, i+1);
-
+  String sNew = new String();
+  for (int i = str.length(); i > 0; i--) 
+    sNew = sNew + str.substring(i-1, i);
     return sNew;
 }
 
-public String noSpaces (String str){
- String s = "";
-  for(int i = 0; i < str.length(); i++)
-  if(str.substring(i, i+1).equals(" ") != true)
-  s = s + str.substring(i, i+1);
-  return s;
-}
-
-public String noPunctuation(String a){
-  String s = new String();
-  for(int i = 0; i < a.length(); i++)
-    if(a.substring(i, i+1).equals(".") == false && a.substring(i, i+1).equals(",") == false)
-      s = a.substring(i, i+1);
-  return s;
-}
-
-  public String onlyLetter(String b){
-    String letters = ""; 
-    for(int i = 0; i < b.length(); i++)
-      if(Character.isLetter(b.charAt(i)) == true)
-       letters = letters + b.substring(i, i+1);
-    return letters;
+public String onlyLetters(String sString) {
+  String letters = "";
+  for (int i = 0; i < sString.length(); i++) {
+    if(Character.isLetter(sString.charAt(i))) 
+      letters = letters + sString.charAt(i);
   }
+  return letters;
 }
-
+}
 
